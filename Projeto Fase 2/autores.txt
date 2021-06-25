@@ -1,0 +1,14 @@
+UC1:
+    Número do aluno: 52763
+    Nome do aluno: Diogo Pinto
+    Horas gastas: 10
+    
+UC2:
+    Número do aluno: 53472
+    Nome do aluno: Francisco Ramalho
+    Horas gastas: 10
+    
+UC4:
+    Número do aluno: 53504
+    Nome do aluno: João Funenga
+    Horas gastas: 10

@@ -1,0 +1,92 @@
+///////////////////////////////////////////////////////////////////////////////////
+
+UC5 - Colocar Produto à Venda
+
+OP A: disponibilizarProdutos()
+pre-condicao:
+	Existe c: Comerciante autenticado e corrente 
+pos-condicao:
+	Seja lp: Lista de Produtos associada a c
+---------------------------------------------------------------------------------
+
+OP B: indicaProduto(codigo, quantidade)
+pre-condicao:
+	Existe c: Comerciante autenticado e corrente
+pos-condicao:
+	Seja lp: Lista de Produtos associada a c
+	Seja p: Produto com p.codigo=codigo
+	a adicionar a lp
+-------------------------------------------------------------------------------
+
+OP C: confirmaDisponibilidade(inicio,fim)
+pre-condicao:
+	Existe c: Comerciante autenticado e corrente
+        Existe lp: lista de produtos corrente
+pos-condicao:
+	Eh criada v: Venda com v.inicio=inicio e v.fim=fim 
+        v é associada a c
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+UC6 - Listar Comerciantes com Produtos Disponíveis
+
+OP A: indicaPosicaoAtual(localizacao)
+pre-condicao:
+	Existe u: Utilizador autenticado e corrente 
+pos-condicao:
+	Define-se u.localizacao=localizacao
+        Cria-se cp: compra associada a u 
+        Define-se cp.estado = pendente
+
+
+OP B1: alteraRaio(raio)
+pre-condicao:
+	Existe u: Utilizador autenticado e corrente
+        Existe cp: compra corrente associada a u
+pos-condicao:
+	Define-se cp.raio = raio
+
+
+OP B2: escolhaPeriodoRecolha(inicio,fim)
+pre-condicao:
+	Existe u: Utilizador autenticado e corrente
+	Existe cp: Compra associada a u
+pos-condicao:
+	Define-se cp.res_inicio=inicio e cp.res_fim=fim
+	
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+UC7 - Encomendar Produtos
+
+//Pôr antes da primeira OP no SSD, caixa a dizer Caso de Uso 6
+
+OP A: escolherComerciante(nome)
+pre-condicao:
+	Existe u: Utilizador autenticado e corrente 
+	Existe cp: Compra associada a u corrente (passada do UC anterior)
+pos-condicao:
+	Seja v: venda associada a cp e a c	
+
+
+OP B: escolherProduto(codigo, quantidade)
+pre-condicao:
+	Existe u: Utilizador autenticado e corrente 
+	Existe lp: Lista de Produtos associado a c
+pos-condicao:
+	Seja p: Produto tal que p.codigo=codigo
+	p eh o produto a adicionar
+
+
+OP C: pagar(cartao_credito)
+pre-condicao:
+	Existe u: Utilizador autenticado e corrente
+	Existe cp: Compra corrente associado a u
+pos-condicao:
+	Seja u: utilizador tal que u.cartao_credito = cartao_credito
+	Eh criada uma r: Reserva com codigo_reserva associada a cp
+	Define-se cp.estado = finalizada
+
